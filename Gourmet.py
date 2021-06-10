@@ -27,7 +27,8 @@ class Pergunta:
 
     def insere_pergunta(self, tipo, objetivo):
         '''
-        Substitui a posição da pergunta por uma nova
+        Coloca uma nova pergunta no lugar da atual.
+        E a atual vai para o `Não` da nova pergunta.
         '''
         pai, escolha_pai = self.parentesco
         pergunta = Pergunta(
@@ -87,6 +88,7 @@ def adivinha_prato():
                 continue
         pergunta = proxima
 # -----------------------------------
+
 
 if __name__ == '__main__':
     adivinha_prato()
