@@ -17,16 +17,21 @@ class CLI:
         e verifica se é um valor válido.
         '''
         self.metodo_saida(titulo)
-        valido = False
+        retorno, valido = '', False
         while not valido:
-            resposta = self.metodo_entrada()
+            try:
+                retorno = self.metodo_entrada()
+            except KeyboardInterrupt:
+                raise
+            except:
+                break
             if not valores_esperados:
-                valido = len(resposta.strip()) > 0
+                valido = len(retorno.strip()) > 0
             else:
-                valido = resposta in valores_esperados
+                valido = retorno in valores_esperados
             if not valido:
                 self.metodo_saida(MENSAGEM_RESP_INVALIDA)
-        return resposta
+        return retorno
 
     def concordou(self, texto):
         '''
