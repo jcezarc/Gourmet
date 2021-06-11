@@ -6,10 +6,12 @@
 
 from modelo.Pergunta import Pergunta
 from view.cli import CLI
+from regras.jogo import Jogo
 
 
 if __name__ == '__main__':
-    cli = CLI(
+    jogo = Jogo(
+        CLI(), # --- A interface com o usuário será através do terminal
         Pergunta('massa', sim='Lasanha', nao='Bolo de chocolate')
     )
-    cli.adivinha_prato()
+    jogo.adivinha_prato()

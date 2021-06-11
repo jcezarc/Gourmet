@@ -15,6 +15,7 @@ class Jogo:
     Classe que implementa as regras do jogo
     '''
     def __init__(self, view, pergunta):
+        self.view = view
         self.primeira_pergunta = pergunta
         self.pergunta_atual = None
 
@@ -22,12 +23,21 @@ class Jogo:
         self.view.aviso(MENSAGEM_INICIO)
         self.pergunta_atual = self.primeira_pergunta
 
-    def adivinha_prato(self):
+    def adivinha_prato(self, limite=-1):
+        '''
+        Faz uma sequência de perguntas para o usuário
+        para tentar adivinhar qual prato ele pensou.
+
+        :limite -- se for definido, interrompe o jogo 
+                depois de um certo número de tentativas
+        '''
         self.inicia_adivinhacao()
-        while self.ativo:
+        tentativas = 0
+        while tentativas != limite:
             concordou = self.view.concordou(
                 self.pergunta_atual.enunciado()
             )
+            tentativas += 1
             proxima = self.pergunta_atual.respostas[concordou]
             if not proxima:
                 if concordou:

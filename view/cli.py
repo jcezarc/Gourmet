@@ -10,7 +10,6 @@ class CLI:
     def __init__(self, metodo_entrada=input, metodo_saida=print):
         self.metodo_entrada = metodo_entrada
         self.metodo_saida = metodo_saida
-        self.ativo = True
 
     def prompt(self, titulo, valores_esperados=''):
         '''
