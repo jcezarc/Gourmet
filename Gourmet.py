@@ -4,7 +4,7 @@
     feito por *Júlio Cascalles*
 """
 
-from lib.Pergunta import Pergunta
+from modelo.Pergunta import Pergunta
 from view.cli import CLI
 
 
